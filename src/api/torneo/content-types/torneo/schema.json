@@ -1,0 +1,97 @@
+{
+  "kind": "collectionType",
+  "collectionName": "torneos",
+  "info": {
+    "singularName": "torneo",
+    "pluralName": "torneos",
+    "displayName": "Torneo"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "nombre": {
+      "type": "string",
+      "required": true,
+      "unique": true
+    },
+    "club": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::club.club",
+      "inversedBy": "torneos"
+    },
+    "jugadors": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::jugador.jugador",
+      "mappedBy": "torneos"
+    },
+    "descripcion": {
+      "type": "text"
+    },
+    "fechaInicio": {
+      "type": "datetime",
+      "required": true
+    },
+    "fechaFin": {
+      "type": "datetime",
+      "required": true
+    },
+    "estado": {
+      "type": "enumeration",
+      "enum": [
+        "Abierto",
+        "En Curso",
+        "Finalizado",
+        "Cancelado"
+      ]
+    },
+    "precioInscripcion": {
+      "type": "biginteger"
+    },
+    "premios": {
+      "type": "text"
+    },
+    "maxParejas": {
+      "type": "biginteger"
+    },
+    "tipoTorneo": {
+      "type": "enumeration",
+      "enum": [
+        "Gold",
+        "Silver",
+        "Major",
+        "Local"
+      ]
+    },
+    "parejas_inscritas": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::pareja.pareja",
+      "mappedBy": "torneos"
+    },
+    "partidos": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::partido.partido",
+      "mappedBy": "torneo"
+    },
+    "categorias": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::categoria.categoria",
+      "mappedBy": "torneos"
+    },
+    "genero": {
+      "type": "enumeration",
+      "required": true,
+      "enum": [
+        "Masculino",
+        "Femenino",
+        "Mixto"
+      ]
+    }
+  }
+}

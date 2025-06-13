@@ -1,0 +1,81 @@
+{
+  "kind": "collectionType",
+  "collectionName": "jugadors",
+  "info": {
+    "singularName": "jugador",
+    "pluralName": "jugadors",
+    "displayName": "Jugador"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "nombre": {
+      "type": "string"
+    },
+    "users_permissions_user": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "plugin::users-permissions.user",
+      "inversedBy": "jugador"
+    },
+    "club": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::club.club",
+      "inversedBy": "jugadors"
+    },
+    "apellido": {
+      "type": "string",
+      "required": true
+    },
+    "email": {
+      "type": "email",
+      "unique": true
+    },
+    "telefono": {
+      "type": "string",
+      "unique": true
+    },
+    "fechaNacimiento": {
+      "type": "date"
+    },
+    "rankingGeneral": {
+      "type": "decimal",
+      "default": 0
+    },
+    "historialRanking": {
+      "type": "json"
+    },
+    "estadisticas": {
+      "type": "component",
+      "component": "jugador.estadisticas",
+      "repeatable": false
+    },
+    "categoria": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::categoria.categoria",
+      "inversedBy": "jugadors"
+    },
+    "torneos": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::torneo.torneo",
+      "inversedBy": "jugadors"
+    },
+    "pareja": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::pareja.pareja",
+      "inversedBy": "jugador1"
+    },
+    "pareja1": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::pareja.pareja",
+      "inversedBy": "jugador2"
+    }
+  }
+}

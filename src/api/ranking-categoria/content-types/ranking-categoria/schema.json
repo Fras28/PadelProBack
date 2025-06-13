@@ -1,0 +1,41 @@
+{
+  "kind": "collectionType",
+  "collectionName": "ranking_categorias",
+  "info": {
+    "singularName": "ranking-categoria",
+    "pluralName": "ranking-categorias",
+    "displayName": "Ranking Categoria"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "nombre": {
+      "type": "string",
+      "required": true,
+      "unique": true
+    },
+    "club": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::club.club",
+      "inversedBy": "ranking_categorias"
+    },
+    "categoria": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::categoria.categoria",
+      "mappedBy": "ranking_categoria"
+    },
+    "fechaActualizacion": {
+      "type": "datetime",
+      "required": true
+    },
+    "entradasRanking": {
+      "type": "component",
+      "component": "ranking-categoria.entrada-ranking",
+      "repeatable": true
+    }
+  }
+}

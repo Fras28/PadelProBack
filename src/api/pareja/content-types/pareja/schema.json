@@ -1,0 +1,60 @@
+{
+  "kind": "collectionType",
+  "collectionName": "parejas",
+  "info": {
+    "singularName": "pareja",
+    "pluralName": "parejas",
+    "displayName": "Pareja"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "nombrePareja": {
+      "type": "string"
+    },
+    "torneos": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::torneo.torneo",
+      "inversedBy": "parejas_inscritas"
+    },
+    "partido_como_pareja_a": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::partido.partido",
+      "mappedBy": "pareja1"
+    },
+    "partido_como_pareja_b": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::partido.partido",
+      "mappedBy": "pareja2"
+    },
+    "partidos_ganados": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::partido.partido",
+      "mappedBy": "ganador"
+    },
+    "partidos_perdidos": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::partido.partido",
+      "mappedBy": "perdedor"
+    },
+    "jugador1": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::jugador.jugador",
+      "mappedBy": "pareja"
+    },
+    "jugador2": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::jugador.jugador",
+      "mappedBy": "pareja1"
+    }
+  }
+}

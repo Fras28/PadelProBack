@@ -1,0 +1,23 @@
+{
+  "collectionName": "components_jugador_estadisticas",
+  "info": {
+    "displayName": "Estadisticas",
+    "icon": "user"
+  },
+  "options": {},
+  "attributes": {
+    "partidosJugados": {
+      "type": "biginteger"
+    },
+    "partidosGanados": {
+      "type": "biginteger"
+    },
+    "torneosJugados": {
+      "type": "biginteger"
+    },
+    "torneosGanados": {
+      "type": "biginteger"
+    }
+  },
+  "config": {}
+}

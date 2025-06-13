@@ -1,0 +1,23 @@
+{
+  "collectionName": "components_ranking_global_entrada_ranking_globals",
+  "info": {
+    "displayName": "Entrada Ranking Global",
+    "icon": "globe"
+  },
+  "options": {},
+  "attributes": {
+    "jugador": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::jugador.jugador"
+    },
+    "puntosGlobales": {
+      "type": "decimal",
+      "default": 0
+    },
+    "posicionGlobal": {
+      "type": "biginteger"
+    }
+  },
+  "config": {}
+}

@@ -1,0 +1,53 @@
+{
+  "kind": "collectionType",
+  "collectionName": "categorias",
+  "info": {
+    "singularName": "categoria",
+    "pluralName": "categorias",
+    "displayName": "Categoria"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "nombre": {
+      "type": "string",
+      "required": true,
+      "unique": true
+    },
+    "club": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::club.club",
+      "inversedBy": "categorias"
+    },
+    "torneos": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::torneo.torneo",
+      "inversedBy": "categorias"
+    },
+    "jugadors": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::jugador.jugador",
+      "mappedBy": "categoria"
+    },
+    "descripcion": {
+      "type": "text"
+    },
+    "reglasEspecificas": {
+      "type": "text"
+    },
+    "ordenRanking": {
+      "type": "biginteger"
+    },
+    "ranking_categoria": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::ranking-categoria.ranking-categoria",
+      "inversedBy": "categoria"
+    }
+  }
+}

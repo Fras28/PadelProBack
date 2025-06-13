@@ -1,0 +1,24 @@
+{
+  "kind": "singleType",
+  "collectionName": "ranking_globals",
+  "info": {
+    "singularName": "ranking-global",
+    "pluralName": "ranking-globals",
+    "displayName": "Ranking Global"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "fechaActualizacion": {
+      "type": "datetime",
+      "required": true
+    },
+    "entradasRankingGlobal": {
+      "type": "component",
+      "component": "ranking-global.entrada-ranking-global",
+      "repeatable": true
+    }
+  }
+}

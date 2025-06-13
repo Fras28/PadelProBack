@@ -1,0 +1,55 @@
+{
+  "kind": "collectionType",
+  "collectionName": "tipo_torneo_puntos",
+  "info": {
+    "singularName": "tipo-torneo-punto",
+    "pluralName": "tipo-torneo-puntos",
+    "displayName": "Tipo Torneo Punto"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "tipoTorneo": {
+      "type": "enumeration",
+      "enum": [
+        "Gold",
+        "Silver",
+        "Major",
+        "Local"
+      ]
+    },
+    "puntosGanador": {
+      "type": "decimal",
+      "required": true
+    },
+    "puntosPerdedor": {
+      "type": "decimal",
+      "required": true
+    },
+    "genero": {
+      "type": "enumeration",
+      "enum": [
+        "Masculino",
+        "Femenino",
+        "Mixto"
+      ]
+    },
+    "ronda": {
+      "type": "enumeration",
+      "required": true,
+      "enum": [
+        "Fase de Grupos",
+        "Ronda de 64",
+        "Ronda de 32",
+        "Octavos",
+        "Cuartos",
+        "Semifinal",
+        "Final",
+        "X_3er y 4to",
+        "Consolacion"
+      ]
+    }
+  }
+}

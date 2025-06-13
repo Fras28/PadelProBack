@@ -1,0 +1,80 @@
+{
+  "kind": "collectionType",
+  "collectionName": "clubs",
+  "info": {
+    "singularName": "club",
+    "pluralName": "clubs",
+    "displayName": "Club "
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "nombre": {
+      "type": "string",
+      "required": true,
+      "unique": true
+    },
+    "direccion": {
+      "type": "string"
+    },
+    "telefono": {
+      "type": "string"
+    },
+    "emailContacto": {
+      "type": "email"
+    },
+    "logo": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "fechaRegistro": {
+      "type": "date"
+    },
+    "estado": {
+      "type": "enumeration",
+      "enum": [
+        "Activo",
+        "Inactivo",
+        "Pendiente"
+      ]
+    },
+    "users_permissions_users": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "plugin::users-permissions.user",
+      "inversedBy": "clubs"
+    },
+    "torneos": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::torneo.torneo",
+      "mappedBy": "club"
+    },
+    "jugadors": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::jugador.jugador",
+      "mappedBy": "club"
+    },
+    "categorias": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::categoria.categoria",
+      "mappedBy": "club"
+    },
+    "ranking_categorias": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::ranking-categoria.ranking-categoria",
+      "mappedBy": "club"
+    }
+  }
+}

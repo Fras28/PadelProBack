@@ -1,0 +1,23 @@
+{
+  "collectionName": "components_ranking_categoria_entrada_rankings",
+  "info": {
+    "displayName": "Entrada Ranking",
+    "icon": "bulletList"
+  },
+  "options": {},
+  "attributes": {
+    "jugador": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::jugador.jugador"
+    },
+    "puntos": {
+      "type": "decimal",
+      "default": 0
+    },
+    "posicion": {
+      "type": "biginteger"
+    }
+  },
+  "config": {}
+}
